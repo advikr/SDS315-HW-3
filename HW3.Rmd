@@ -238,7 +238,7 @@ confint(boot_b, level = 0.95)
 
 **Results:** This bootstrap shows that we are 95% confident that the show The Biggest Loser has a mean score of Q1_Annoyed 0.527 and 0.024 lower than the Apprentice: Los Angeles.
 
-**Conclusion:** Our findings are significant because the confidence interval does not go through 0, which mean that there is no chance that the means are the same. Stakeholders should know that there is a show which had viewers the most annoyed based off of the Q1_Annoyed scores, with that show being The Biggest Loser.
+**Conclusion:** Our findings are significant because the confidence interval does not go through 0, which means that there is no chance that the means are the same. Stakeholders should know that there is a show which had viewers the most annoyed based off of the Q1_Annoyed scores, with that show being The Biggest Loser.
 
 ### Part C
 
