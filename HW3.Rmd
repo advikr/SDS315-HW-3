@@ -1,7 +1,7 @@
 ---
 title: "Homework 3"
 author: "Advik Ravichandran"
-date: "February 11th, 2025"
+date: "February 13th, 2025"
 output:
   pdf_document:
     toc: false
@@ -24,7 +24,7 @@ output:
 
 **Evidence:**
 
-```{r echo = FALSE, warning = FALSE, results = 'hide'}
+```{r echo = FALSE, warning = FALSE, results = 'hide', message = FALSE}
 # Loading libraries
 library(ggplot2)
 library(dplyr)
@@ -69,7 +69,10 @@ The theory is not supported by the data because the confidence interval for the 
 gas_prices <- read.csv("gasprices.csv")
 
 # Scatterplot
-ggplot(gas_prices) + geom_point(aes(x = Price, y = Income))
+ggplot(gas_prices) + geom_point(aes(x = Price, y = Income)) + 
+  labs(
+    title = "The Correlation Between Gas Prices and Income"
+  )
 cor(gas_prices$Price, gas_prices$Income)
 
 boot_gas_income <- do(10000)*coef(lm(Price ~ Income, data=mosaic::resample(gas_prices)))
@@ -139,7 +142,11 @@ gas_prices <- read.csv("gasprices.csv")
 gas_shell <-
   gas_prices %>%
   mutate(isShell = Name == "Shell")
-ggplot(gas_shell) + geom_boxplot(aes(x = Price, y = isShell))
+ggplot(gas_shell) + geom_boxplot(aes(x = Price, y = isShell)) + 
+  labs(
+    y = "Shell Owned",
+    title = "Gas Prices Compared Between Shell and Non Shell Owned Stations"
+  )
 
 boot_gas_shell <- do(10000)*diffmean(Price ~ isShell, data=mosaic::resample(gas_shell))
 confint(boot_gas_shell, level = 0.95)
